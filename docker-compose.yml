@@ -23,17 +23,14 @@ services:
     depends_on:
       - gateway
     volumes:
-      - hermes-data:/.hermes
+      - hermes-data:/home/hermeswebui/.hermes
       - hermes-agent-src:/opt/hermes-agent:ro
     environment:
       - WANTED_UID=10000
       - WANTED_GID=10000
-      - HERMES_HOME=/.hermes
       - HERMES_WEBUI_HOST=0.0.0.0
       - HERMES_WEBUI_PORT=8787
       - HERMES_WEBUI_PASSWORD=${HERMES_WEBUI_PASSWORD}
-      - HERMES_WEBUI_STATE_DIR=/.hermes/webui
-      - HERMES_WEBUI_DEFAULT_WORKSPACE=/.hermes/workspace
       - HERMES_WEBUI_AGENT_DIR=/opt/hermes-agent
       - HERMES_WEBUI_AUTO_INSTALL=1
 
