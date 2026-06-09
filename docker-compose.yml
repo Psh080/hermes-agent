@@ -15,7 +15,7 @@ services:
       - GATEWAY_ALLOW_ALL_USERS=${GATEWAY_ALLOW_ALL_USERS:-false}
     command: ["gateway", "run"]
 
-  webui:
+webui:
     image: ghcr.io/nesquena/hermes-webui:latest
     container_name: hermes-webui
     restart: unless-stopped
@@ -27,8 +27,4 @@ services:
       - HERMES_WEBUI_PASSWORD=${HERMES_WEBUI_PASSWORD}
       - HERMES_WEBUI_STATE_DIR=/home/hermeswebui/.hermes/webui
       - HERMES_WEBUI_DEFAULT_WORKSPACE=/home/hermeswebui/.hermes/workspace
-      - WANTED_UID=${HERMES_UID:-10000}
-      - WANTED_GID=${HERMES_GID:-10000}
-
-volumes:
-  hermes-data:
+      - HERMES_WEBUI_AUTO_INSTALL=1
